@@ -1,8 +1,17 @@
-button {
+#searcherButton {
     display: block;
-    padding: .5em;
-    position: relative;
+    margin: 0px; 
+    position: absolute;
     top: 50%;
-    left: 40%;
+    left: 47%;
+    padding: 5px;
+}
 
+#converterButton {
+    display: block;
+    margin: 0px; 
+    position: absolute;
+    top: 45%;
+    left: 47.5%;
+    padding: 5px;
 }
