@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePath = path.join(__dirname, 'currencyConversions.json'); // Replace 'data.json' with your JSON file's name.
+const filePath = path.join(__dirname+"\\currencyData", 'currencyConversions.json'); // Replace 'data.json' with your JSON file's name.
 const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
 let currencyCodeJson = [];
