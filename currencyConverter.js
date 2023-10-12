@@ -2,31 +2,35 @@
 // Purpose:
 
 // tODO;
-    // make jsons work
     // integrate with existing code
     // make css for buttons nicer
     // currncy search.js
 
-function convertCurrency() 
+function promptConvertCurrency() 
 {
-    let currencyCodeJson = [];
+    let rates = 
+    { 
+        "USD": 1.00,
+        "AUD": 1.531863,
+        "CAD": 1.36029,
+        "CLP": 950.662057,
+        "CNY": 7.128404,
+        "EUR": 1.03203,
+        "GBP": 0.920938,
+        "INR": 81.255504,
+        "JPY": 143.376504,
+        "RUB": 57.875038,
+        "ZAR": 17.92624
+    };
 
-    const fs = require('fs');
-    const path = require('path');
+    let date = "2022-09-24";
 
-    const filePath = path.join(__dirname, 'currencyConversions.json'); 
-    const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-
-    for (const [key, value] of Object.entries(jsonData.rates))
-    {
-        currencyCodeJson.push(key);
-    }
 
     
     // ask user for original currency's code
     let questionOne = "Hello, Welcome to the Currency Converter!\nWhat currency would you like to convert? (3-digit code)";
     let currencyCodeError = "Please enter a valid currency code, use the currency searcher to help.";
-    let currencyCode = askForString(questionOne, currencyCodeJson, currencyCodeError);
+    let currentCurrency = askForString(questionOne, rates, currencyCodeError);
 
     // ask user for amount to convert
     let questionTwo = "How much do you want to convert?";
@@ -34,15 +38,22 @@ function convertCurrency()
     
     // ask user for currency code to convert to
     let questionThree = "What currency do you want it converted to? (3-digit code)";
-    let convertedCurrencyCode = askForString(questionThree, currencyCodeJson, currencyCodeError);
+    let convertedCurrency = askForString(questionThree, rates, currencyCodeError);
 
 
     // calculate value & round to 2 decimal
-    let convertedValue = 1.555.toFixed(2);
+    let convertedValue = convertCurrency(currentCurrency, convertedCurrency, currencyAmount, rates);
 
     // alert conversion value to user
-    alert(currencyAmount + " " + currencyCode + " is " + convertedValue + " " + convertedCurrencyCode + ".");
+    alert(currencyAmount + " " + currentCurrency + " is " + convertedValue + " " + convertedCurrency + ". As of " + date + ".");
 }
+
+
+function convertCurrency(current, converted, amount, rates)
+{
+    return (amount * (rates[converted]/rates[current])).toFixed(2);
+}
+
 
 
 function askForString(question, answerJson, errorAnswer)
@@ -68,21 +79,3 @@ function askForNumber(question)
 
     return answer;
 }
-
-
-async function getConversionsJson()
-{
-    const requestURL = "currencyConversions.json";
-
-    const response = await fetch(requestURL);
-    const json = await response.json();
-
-    return json;
-}
-
-function processData(data) {
-    const name = data.name;
-    const age = data.age;
-  
-    console.log(`Name: ${name}, Age: ${age}`);
-  }
