@@ -10,7 +10,6 @@ function promptConvertCurrency()
 {
     let rates = 
     { 
-        "USD": 1.00,
         "AUD": 1.531863,
         "CAD": 1.36029,
         "CLP": 950.662057,
@@ -20,6 +19,7 @@ function promptConvertCurrency()
         "INR": 81.255504,
         "JPY": 143.376504,
         "RUB": 57.875038,
+        "USD": 1.00,
         "ZAR": 17.92624
     };
 

@@ -1,4 +1,4 @@
-#converterButton, #searcherButton {
+button {
     display: block;
     padding: .5em;
     position: relative;
