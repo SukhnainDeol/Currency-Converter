@@ -44,7 +44,7 @@ function promptConvertCurrency()
     // multiplies amount by a fraction of current and converted currrencies' values & round to 2 decimal
     let convertedValue = (amount * (rates[convertedCurrency]/rates[currentCurrency])).toFixed(2);
 
-    // alert conversion value to user (e.g. 100 USD is 153.19 AUD. As of 2022-09-24)
+    // alert conversion value to user (e.g. "100 USD is 153.19 AUD. As of 2022-09-24")
     alert(amount + " " + currentCurrency + " is " + convertedValue + " " + convertedCurrency + ". As of " + date + ".");
 }
 
@@ -71,6 +71,7 @@ function askForString(question, answers, errorAnswer)
 
     return answer.toUpperCase();
 }
+
 
 
 /** 

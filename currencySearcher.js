@@ -8,10 +8,10 @@
 
 
 /** 
- *  prompts the user for a search string and returns any key or value
- *  in symbols that have that value as a substring
+ * prompts the user for a search string and returns any key or value
+ * in symbols that have that value as a substring
  * 
- * Example: user enters 'aud' in prompt, function alerts AUD: Australian Dollar
+ * Example: user enters 'aud' in prompt, function alerts "AUD: Australian Dollar"
  */
 function promptSearchCurrency()
 {
@@ -38,6 +38,7 @@ function promptSearchCurrency()
 }
 
 
+
 /** 
  * searches objects for keys of values that match searchString and return 
  * them in an array
@@ -60,6 +61,7 @@ function searchCurrency(searchString, symbols)
     }
     return searchResults;
 }
+
 
 
 /** 
